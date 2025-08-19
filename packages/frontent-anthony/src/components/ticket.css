@@ -1,0 +1,29 @@
+.ticket{
+    width: 250px;
+        clip-path: polygon(0 40%, 0 0, 100% 0, 100% 40%, 95% 50%, 100% 60%, 100% 100%, 0 100%, 0 60%, 5% 50%);
+    position: relative;
+}
+
+.ticket::before, 
+.ticket::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 90%;
+    height: 100%;
+    width: 0px;
+    border: 3px dashed black;
+}
+
+.ticket::after {
+    left: 10%;
+}
+
+.ticket h4{
+    font-size: 1.4rem;
+}
+
+
+.ticket h5{
+    font-size: 1rem;
+}

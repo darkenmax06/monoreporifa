@@ -1,0 +1,1 @@
+GET http://localhost:3000/api/bouchers/8298152900

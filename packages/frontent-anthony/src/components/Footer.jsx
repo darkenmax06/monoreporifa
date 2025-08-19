@@ -1,0 +1,32 @@
+import "./footer.css"
+import logo from "../../public/logo.jpg"
+import { Instagram,Mail } from "lucide-react"
+
+function Footer (){
+    return (
+        <footer className="footer">
+            <figure className="footer__logo">
+                <img src={logo} alt="" />
+            </figure>
+            <div className="footer__social-media">
+                <a className="footer__links" href="https://www.instagram.com/anthonirgr/?utm_source=ig_web_button_share_sheet">
+                <Instagram />
+                    Instagram
+                </a>
+
+                <a className="footer__links" href="https://wa.me/18292069691?text=Buenas%20hermano%21">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" stroke-width="3" stroke="currentColor" fill="none"><path d="M35.66,35.67a16.71,16.71,0,0,1-7.75-6.78.82.82,0,0,1,.12-.95l1.55-1.69a.8.8,0,0,0,.15-.87l-2.44-4.65S26.21,19.08,24,20.5c0,0-5.81,4.54-2.1,10.78s7.2,8.35,10.34,9.88c2.73,1.33,8.64,3.1,12.21-3.39,0,0,1.25-2,0-2.51-.57-.23-3.68-1.77-5-2.41a.82.82,0,0,0-1,.22l-1.86,2.35A.81.81,0,0,1,35.66,35.67Z"/><path d="M8.86,53.49l4-11.2a23,23,0,1,1,8.64,8.8Z" stroke-linecap="round"/></svg>
+                    Whatsapp
+                </a>
+
+                <a className="footer__links" href="mailto:ramsesgonzalez20066@gmail.com">
+                    <Mail />
+                    Correo
+                </a>
+            </div>
+        </footer>
+    )
+}
+
+
+export default Footer

@@ -1,0 +1,134 @@
+/* CONTENEDOR PRINCIPAL */
+.dashboard__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100vh;
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* TITULO PRINCIPAL */
+.dashboard__container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* GRID DE TARJETAS */
+.dashboard__data {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+/* TARJETA */
+.card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--color);
+}
+
+
+
+.card h6 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.card strong {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* PROGRESO */
+.progress__card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.progress__card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* BARRA DE PROGRESO */
+
+
+/* TITULO PENDIENTES */
+.dashboard__container h5 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+/* LISTA DE TICKETS */
+.dashboard__tickets-ct {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* TARJETA DE TICKET */
+.ticket {
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ticket:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.ticket__name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ticket__number {
+    font-size: 14px;
+}
+
+.ticket__quantity {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.dashboard__result{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dashboard__result h2{
+    width: 100%;
+    flex-grow: 1;
+    flex-wrap: 1;
+    text-align: center;
+
+}
+
+.dashboard__tickets-ct{
+
+}

@@ -1,0 +1,3 @@
+### GET http://localhost:3000/api/bouchers/?status=ACTIVE&payMethod=BANRESERVAS
+
+GET http://localhost:3000/api/bouchers/quantity

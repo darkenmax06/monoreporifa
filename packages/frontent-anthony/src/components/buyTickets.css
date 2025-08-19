@@ -1,0 +1,260 @@
+.bt{
+    padding: 64px 16px;
+    background-color: var(--background);
+    text-align: center;
+    color: var(--text);
+}
+
+.bt__box{
+    background-color: var(--secondary20);
+    padding: 32px 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.bt__q{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+    padding: 32px 0px;
+}
+
+.bt__select{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.bt__select h6{
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.bt__manual{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.bt__more,.bt__less{
+    align-self: center;
+    display: block;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 32px;
+    font-size: 40px;
+    border: none;
+    background-color: var(--secondary);
+    color: #000;
+}
+
+.bt__more:hover,.bt__less:hover{
+    color: var(--white);
+    background: var(--color);
+}
+
+.bt__select:hover .bt__btn:not(:hover){
+    filter: opacity(.6);
+}
+
+.bt__select div, .bt__quantity{
+    padding: 16px 40px;
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: var(--background);
+    border: none;
+    font-weight: 800;
+    font-size: 1.3rem;
+    position: relative;
+    transition: .3s;
+    clip-path: polygon(0 40%, 0 0, 100% 0, 100% 40%, 95% 50%, 100% 60%, 100% 100%, 0 100%, 0 60%, 5% 50%);
+}
+
+
+
+.bt__select div::after,
+.bt__quantity::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    height: 100%;
+    width: 0px;
+    border: 2px dashed var(--background);
+}
+
+.bt__select div::before,
+.bt__quantity::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 90%;
+    height: 100%;
+    width: 0px;
+    border: 2px dashed var(--background);
+}
+
+.bt__payMethod{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.payMethod__select{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+}
+
+.payMethod{
+    position: relative;
+}
+
+.payMethod.active{
+    opacity: 1;
+}
+
+.payMethod.active::before{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    content: "";
+    display: block;
+    border-radius: 10px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary);
+}
+
+.payMethod{
+    opacity: .4;
+    width: 60px;
+    height: 60px;
+}
+
+.payMethod img {
+    width: 100%;
+    height: 100%;
+}
+
+.bt__form{
+    width: 100%;
+    padding: 64px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background-color: var(--background);
+    color: var(--text);
+    border-radius: 8px;
+}
+
+
+.bt__inputs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+}
+
+.bt__label{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+    gap: 8px;
+    min-width: 150px;
+    text-align: start;
+    color: var(--text);
+    transition: color .3s;
+}
+
+.bt__label input{
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: inherit;
+    border: 2px solid var(--text);
+    color: var(--text);
+    transition: border .3s;
+    width: 100%;
+}
+
+.bt__label input:focus{
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    outline: none;
+}
+
+.bt__label:focus-within{
+    color: var(--primary);
+}
+
+.bt__label:first-child{
+}
+
+.bt__label:last-child{
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: nunito;
+    font-size: 1rem;
+    font-weight: 800;
+    width: 300px;
+    height: 100px;
+    border: 4px dashed var(--primary);
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-color: var(--background);
+}
+
+.image input {
+    visibility: hidden;
+    display: none;
+}
+
+.bt__smanual{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.bt__data{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: var(--colorTransparent);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.bt__buy{
+    padding: 16px 32px;
+    border-radius: 32px;
+    border: none;
+    background-color: var(--primary);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--background);
+}
