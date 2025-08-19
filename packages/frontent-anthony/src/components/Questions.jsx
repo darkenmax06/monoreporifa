@@ -1,5 +1,5 @@
 import "./question.css"
-import Arrow from "./icons/arrow"
+import Arrow from "./icons/Arrow.jsx"
 import { useRef, useState } from "react"
 
 function Questions (){
