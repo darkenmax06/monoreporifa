@@ -15,13 +15,17 @@ app.use(express.json())
 
 let connection = null
 
+const {HOST,DBPORT,USER,PASSWORD,DATABASE} = process.env
+
+console.log(USER)
+
 try{
     connection = await mysql2.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "dark",
-        password: "Enmanuelx06.",
-        database: "ticketsApp"
+        host: HOST,
+        port: DBPORT,
+        user: USER,
+        password: PASSWORD,
+        database: DATABASE
     })
 
     console.log("database connected!")
