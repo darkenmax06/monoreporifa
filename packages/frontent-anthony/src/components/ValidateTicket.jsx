@@ -29,6 +29,7 @@ function ValidateTicket (){
                             type="number"
                             name="phone"
                             value={number}
+                            placeholder="sin guiones ni parentesis"
                             onChange={e => setNumber(e.target.value)}
                             required />
                             <button className="validate__button">

@@ -1,4 +1,4 @@
-const URI = "http://localhost:3000/api/bouchers"
+const URI = "/api/bouchers"
 
 async function buyTickets (data){
     const options ={

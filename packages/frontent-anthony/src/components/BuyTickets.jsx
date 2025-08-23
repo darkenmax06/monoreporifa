@@ -9,8 +9,8 @@ function BuyTickets (){
         name: "",
         number: "",
         price: 10,
-        quantity: 5,
-        total: 50
+        quantity: 10,
+        total: 100
     })
 
     const [method,setMethod] = useState([
@@ -127,12 +127,12 @@ function BuyTickets (){
                         <div className="bt__select">
                             <h6>seleccionar cantidad</h6>
 
-                            <div className="bt__btn" onClick={e => handleIncrease(10)} >10</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(20)} >20</div>
                             <div className="bt__btn" onClick={e => handleIncrease(50)} >50</div>
                             <div className="bt__btn" onClick={e => handleIncrease(100)} >100</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(150)} >150</div>
                             <div className="bt__btn" onClick={e => handleIncrease(250)} >250</div>
                             <div className="bt__btn" onClick={e => handleIncrease(500)} >500</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(1000)} >1000</div>
 
                         </div>
 
