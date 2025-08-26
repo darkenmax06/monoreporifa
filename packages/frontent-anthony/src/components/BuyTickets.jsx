@@ -8,9 +8,9 @@ function BuyTickets (){
     const [ticket,setTicket] = useState({
         name: "",
         number: "",
-        price: 10,
-        quantity: 10,
-        total: 100
+        price: 25,
+        quantity: 6,
+        total: 150
     })
 
     const [method,setMethod] = useState([
@@ -23,8 +23,8 @@ function BuyTickets (){
         },{
             url: "/bpd.webp",
             bank: "POPULAR",
-            name: "Anthoni Gonzalez",
-            number: "858567679",
+            name: "Ramses Gonzalez",
+            number: "844270504",
             focus: false
         }
     ])
@@ -45,7 +45,7 @@ function BuyTickets (){
 
     const handleDecrease = () => {
         setTicket(prev =>  {
-        const quantity = prev.quantity <= 5 ? 5: prev.quantity - 1
+        const quantity = prev.quantity <= 6 ? 6: prev.quantity - 1
 
             return ({
                 ...prev, 
@@ -127,12 +127,12 @@ function BuyTickets (){
                         <div className="bt__select">
                             <h6>seleccionar cantidad</h6>
 
-                            <div className="bt__btn" onClick={e => handleIncrease(50)} >50</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(12)} >12</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(24)} >24</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(36)} >36</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(48)} >48</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(60)} >60</div>
                             <div className="bt__btn" onClick={e => handleIncrease(100)} >100</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(150)} >150</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(250)} >250</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(500)} >500</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(1000)} >1000</div>
 
                         </div>
 

@@ -39,7 +39,7 @@ function Product (){
                         - Una Yamaha YB 125 CC Totalmente nueva.
                         <br />
                         <br />
-                        Para participar solo debes comprar tu boleto con valor de RD$10 presionando el boton de Comprar Boletos.
+                        Para participar solo debes comprar tu boleto con valor de RD$25 presionando el boton de Comprar Boletos.
                     </p>
 
                     <a className="product__action" href="#buy" role="button" >
