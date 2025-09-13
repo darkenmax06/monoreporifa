@@ -86,6 +86,8 @@ function BuyTickets (){
 
     const handleSubmit = e =>{
         e.preventDefault()
+
+        if (loading) return null
         const {image} = Object.fromEntries(new FormData(e.target))
 
         const dataToSend = {
@@ -94,14 +96,13 @@ function BuyTickets (){
         }
 
         sendData({...dataToSend,payMethod:method.find(res => res.focus == true).bank})
-        .then(res => {
-            console.log("s")
+        .then(() => {
             setTicket({
                 name: "",
                 number: "",
-                price: 100,
-                quantity: 1,
-                total: 100
+                price: values.price * values.quantity,
+                quantity: values.quantity,
+                total: values.price
             })
         })
     }
@@ -198,7 +199,7 @@ function BuyTickets (){
 
                     {error && <p>{error}</p>}
 
-                    <button className="bt__buy" >Comprar Boletos</button>
+                    <button className="bt__buy" >{loading ? "cargando...": "Comprar boletos"}</button>
                 </form>
             </div>
         </section>

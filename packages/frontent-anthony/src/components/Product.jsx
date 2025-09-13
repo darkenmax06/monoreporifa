@@ -28,7 +28,7 @@ function Product (){
                     </div>
 
                     <p className="product__description">
-                        Participa y se uno de los ganadores de los articulos presentados a continuacion: <br /><br />
+                        Participa y gana el articulo que presentamos a continuacion: <br /><br />
 
                         Este sorteo posee lo siguiente:
 
@@ -36,7 +36,7 @@ function Product (){
 
                         <br />
                         <br />
-                        - Una Yamaha YB 125 CC Totalmente nueva.
+                        - Yamaha Cruz 110cc 0km año 2025 Totalmente nueva.
                         <br />
                         <br />
                         Para participar Adquiere 4 boletos por un valor de RD$100 (mas posibilidades de ganar) presionando el boton de Comprar Boletos.

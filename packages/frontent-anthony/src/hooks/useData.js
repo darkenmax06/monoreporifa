@@ -14,6 +14,8 @@ function useData () {
         if (error){
             const timeout = setTimeout(()=>{
                 setError(null)
+                setLoading (false)
+
             },5000)
 
             return ()=> clearTimeout(timeout)
@@ -24,7 +26,7 @@ function useData () {
         getTicketQuantity()
         .then(result => {
             const {totalTickets,buyTickets,withoutValidateTickets,invalidTickets} = result
-            const porcent = Math.round((buyTickets / totalTickets) * 100)
+            const porcent = Math.round(((buyTickets - (withoutValidateTickets + invalidTickets)) / totalTickets) * 100)
             setTicketNumber({totalTickets,buyTickets,porcent,withoutValidateTickets,invalidTickets})
 
             setLoading(false)
@@ -73,6 +75,7 @@ function useData () {
     }
 
     async function sendData ({name,number,quantity,image,payMethod}) {
+        setLoading(true)
         const parsedNumer =  limpiarNumeroTelefono(number)
         if (name.length < 3) return setError("El nombre debe ener un minimo de 3 caracteres")
         else if (name.length > 200)return setError("El nombre debe ener un maximo de 200 caracteres")
@@ -93,10 +96,9 @@ function useData () {
             return null
         } catch(err){
             console.log(err)
+        }  finally {
+            setLoading(false)
         }
-
-        
-
     }
 
     async function upTickets ({ticket,status}){
