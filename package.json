@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "workspaces": [
-    "backend",
-    "proyecto-anthony"
+    "/packages/*"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=backend",
+    "dev:app": "npm run dev --workspace=proyecto-anthony",
+    "dev:api": "npm run dev --workspace=backend",
     "build": "npm run build  --workspace=proyecto-anthony"
   },
   "keywords": [],

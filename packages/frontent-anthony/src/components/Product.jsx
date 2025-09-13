@@ -12,7 +12,7 @@ function Product (){
                 </div>
                 <div className="product__textbox">
                     <h1 className="product__title">
-                        Yamaha YB 125 CC
+                        Yamaha Cruz 110cc 0km año 2025
                     </h1>
 
                     <h4 className="product__subtitle">
@@ -39,7 +39,7 @@ function Product (){
                         - Una Yamaha YB 125 CC Totalmente nueva.
                         <br />
                         <br />
-                        Para participar solo debes comprar tu boleto con valor de RD$25 presionando el boton de Comprar Boletos.
+                        Para participar Adquiere 4 boletos por un valor de RD$100 (mas posibilidades de ganar) presionando el boton de Comprar Boletos.
                     </p>
 
                     <a className="product__action" href="#buy" role="button" >

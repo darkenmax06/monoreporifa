@@ -5,12 +5,16 @@ import useData from "../hooks/useData"
 
 function BuyTickets (){
     const {error,loading,message,sendData} = useData()
+    const values ={
+        price: 25,
+        quantity: 4,
+    }
     const [ticket,setTicket] = useState({
         name: "",
         number: "",
-        price: 25,
-        quantity: 6,
-        total: 150
+        price: values.price,
+        quantity: values.quantity,
+        total: values.price * values.quantity
     })
 
     const [method,setMethod] = useState([
@@ -34,7 +38,7 @@ function BuyTickets (){
 
     const handleIncrease = (value) => {
         setTicket(prev =>  {
-            const quantity = value ?? prev.quantity + 1
+            const quantity = value ?? prev.quantity + 4
             return ({
                 ...prev, 
                 quantity,
@@ -45,7 +49,7 @@ function BuyTickets (){
 
     const handleDecrease = () => {
         setTicket(prev =>  {
-        const quantity = prev.quantity <= 6 ? 6: prev.quantity - 1
+        const quantity = prev.quantity -4 <= 4 ? 4: prev.quantity - 4
 
             return ({
                 ...prev, 
@@ -127,12 +131,12 @@ function BuyTickets (){
                         <div className="bt__select">
                             <h6>seleccionar cantidad</h6>
 
-                            <div className="bt__btn" onClick={e => handleIncrease(12)} >12</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(24)} >24</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(36)} >36</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(48)} >48</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(60)} >60</div>
-                            <div className="bt__btn" onClick={e => handleIncrease(100)} >100</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(40)} >40</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(80)} >80</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(120)} >120</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(200)} >200</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(400)} >400</div>
+                            <div className="bt__btn" onClick={e => handleIncrease(600)} >600</div>
 
                         </div>
 
