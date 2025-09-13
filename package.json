@@ -8,7 +8,7 @@
   "scripts": {
     "dev:app": "npm run dev --workspace=proyecto-anthony",
     "dev:api": "npm run dev --workspace=backend",
-    "build": "npm run build  --workspace=proyecto-anthony"
+    "start": "npm run build  --workspace=proyecto-anthony && npm run start  --workspace=backend"
   },
   "keywords": [],
   "author": "",
