@@ -8,10 +8,8 @@ import useTickets from "../hooks/useTickets";
 
 function Tickets(){
     const {number} = useParams()
-    const {upTickets,data} = useTickets()
+    const {upTickets,data} = useTickets(number)
     const navigate = useNavigate()
-
-    console.log(data)
 
     if (data && data.tickets.length < 1){
         navigate("/dashboard")

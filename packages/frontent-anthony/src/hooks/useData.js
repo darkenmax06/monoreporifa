@@ -5,7 +5,7 @@ import useError from "./useError.js";
 import useTickets from "./useTickets.js";
 
 function useData () {
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(false)
     const {error,createError} = useError()
     const [alert,setAlert] = useState(false)
     const {data:dat} = useTickets()

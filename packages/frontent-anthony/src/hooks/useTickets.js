@@ -3,12 +3,12 @@ import { getByNumber,UpdateTickets } from "../services/bouchersServices";
 
 
 
-export default function useTickets(){
+export default function useTickets(number){
     const [data,setData] = useState(null)
     const [loading,setLoading] = useState(true)
 
     useEffect(()=>{
-        getByNumber({number: "8299999999"})
+        getByNumber({number})
         .then(res => {
             const bouchers = new Set(res.map(res => res.boucher))
             const info ={
