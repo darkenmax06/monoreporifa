@@ -11,13 +11,10 @@ function ValidateTicket (){
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log("a")
         showTicket(number)
         .then(res => setResult(res))
-        
     }
 
-    console.log(result)
     
 
     return (

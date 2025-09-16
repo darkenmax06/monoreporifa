@@ -258,3 +258,8 @@
     font-size: 1rem;
     color: var(--background);
 }
+
+.boucher__image{
+    max-width: 300px;
+    border-radius: 8px;
+}

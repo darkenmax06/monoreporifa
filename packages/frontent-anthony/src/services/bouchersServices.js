@@ -31,7 +31,6 @@ async function getPendingTickets (){
     try {
         const res = await fetch(`${URI}/?status=IN+PROCESS`)
         const result = await res.json()
-        console.log(result)
         if (!res.ok) throw result
         return result
     } catch (err){
@@ -41,7 +40,6 @@ async function getPendingTickets (){
 
 
 async function UpdateTickets ({status,ticket}){
-    console.log(status)
     const options ={
         "body": JSON.stringify({status}),
         "method": "PUT",
@@ -61,11 +59,9 @@ async function UpdateTickets ({status,ticket}){
 }
 
 async function ValidateTicket({phone}) {
-    console.log("s")
     try {
         const res = await fetch(`${URI}/validate/?phone=${phone}`)
         const result = await res.json()
-        console.log(result)
         if (!res.ok) throw result
         return result
     } catch (err){
@@ -84,6 +80,29 @@ async function getByStatus({status}) {
     }  
 }
 
+async function getByNumber({number}) {
+    try {
+        const res = await fetch(`${URI}/number/${number}`)
+        const result = await res.json()
+        if (!res.ok) throw result
+        return result
+    } catch (err){
+        throw err.error
+    }  
+}
+
+async function getTicket({ticket}) {
+    try {
+        const res = await fetch(`${URI}/ticket/${ticket}`)
+        const result = await res.json()
+        if (!res.ok) throw result
+        return result
+    } catch (err){
+        throw err.error
+    }  
+}
+
+
 
 export {
     buyTickets,
@@ -91,5 +110,7 @@ export {
     getPendingTickets,
     UpdateTickets,
     ValidateTicket,
-    getByStatus
+    getByStatus,
+    getTicket,
+    getByNumber
 }

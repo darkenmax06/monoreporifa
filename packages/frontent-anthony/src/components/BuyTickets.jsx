@@ -2,9 +2,10 @@ import "./buyTickets.css"
 import { useState } from "react"
 import More from "./icons/More"
 import useData from "../hooks/useData"
+import Alert from "./alets/Alert"
 
 function BuyTickets (){
-    const {error,loading,message,sendData} = useData()
+    const {error,loading,alert,handleHide,sendData} = useData()
     const values ={
         price: 25,
         quantity: 4,
@@ -32,6 +33,8 @@ function BuyTickets (){
             focus: false
         }
     ])
+
+    const [url,setUrl] = useState(null)
 
     const currentMethod = method.find(res => res.focus == true)
 
@@ -100,10 +103,12 @@ function BuyTickets (){
             setTicket({
                 name: "",
                 number: "",
-                price: values.price * values.quantity,
+                price: values.price,
                 quantity: values.quantity,
-                total: values.price
+                total: values.price * values.quantity
             })
+
+            setUrl(null)
         })
     }
 
@@ -187,13 +192,27 @@ function BuyTickets (){
                                 alert("elemento copiado")
                             }} >{currentMethod.number}  </h5>
                             <h6>Titular: {currentMethod.name}</h6>
+                            
+                            {url && <img className="boucher__image" src={url} />}
 
                             <label htmlFor="image" className="image" >
                                 Da click aca para subir el comprobante de pago
-                                <input id="image" name="image" type="file" accept=".jpeg,.jpg,.png" />
+                                <input onChange={e => {
+                                    const file = e.target.files[0]
+
+                                    const fileReader = new FileReader()
+                                    fileReader.readAsDataURL(file)
+                                    fileReader.addEventListener("load", e=>{
+                                        const url = URL.createObjectURL(file)
+                                        setUrl(url)
+                                    })
+                                }} id="image" name="image" type="file" accept=".jpeg,.jpg,.png" />
                             </label>
+
                         </div>
                     </div>
+
+                    {alert && <Alert handleHide={handleHide} />}
 
                     <h4>{currentMethod.bank}: RD${ticket.total}.00 (Boletos:{ticket.quantity})</h4>
 

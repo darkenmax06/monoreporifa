@@ -1,38 +1,33 @@
 import { Link } from "react-router-dom"
-import useData from "../hooks/useData"
 import './dashboard.css'
+import useDashboard from "../hooks/useDashboard"
 
 
 function Dashboard() {
-  const { tickets, ticketNumber,getAllTickets,results } = useData()
-
-  console.log(results)
+  const {data,getTickets,pendings,results} = useDashboard()
 
   return (
     <section className="dashboard">
       <div className="dashboard__container">
         <h2>Dashboard</h2>
 
-        {/* Métricas principales */}
         <div className="dashboard__data">
-          <Card title="Boletos totales" value={ticketNumber?.totalTickets} />
-          <Card title="Boletos comprados" value={ticketNumber?.buyTickets} />
-          <Card title="Validados" handleClick={()=> getAllTickets("ACTIVE")} value={ticketNumber?.buyTickets - ticketNumber?.withoutValidateTickets} />
-          <Card title="Sin validar" handleClick={()=> getAllTickets("IN PROCESS")} value={ticketNumber?.withoutValidateTickets} />
-          <Card title="Rechazados" handleClick={()=> getAllTickets("INVALID")} value={ticketNumber?.invalidTickets} />
-          <Card title="Total generado"  value={`RD$${(ticketNumber?.buyTickets - ticketNumber?.withoutValidateTickets) * 100}`} />
+          <Card title="Boletos totales" value={data?.totalTickets} />
+          <Card title="Validados" handleClick={()=> getTickets("ACTIVE")} value={data?.validTickets} />
+          <Card title="Sin validar" handleClick={()=> getTickets("IN PROCESS")} value={data?.withoutValidateTickets} />
+          <Card title="Rechazados" handleClick={()=> getTickets("INVALID")} value={data?.invalidTickets} />
+          <Card title="Total generado"  value={`RD$${data?.validTickets* 100}`} />
         </div>
 
-        {/* Barra de progreso */}
         <div className="progress__card">
           <h4>Progreso de compra</h4>
           <div className="product__loading">
             <div
               className="product__bar"
-              style={{ "--porcent": ticketNumber ? ticketNumber.porcent + "%" : "0%" }}
+              style={{ "--porcent": data ? data.porcent + "%" : "0%" }}
             ></div>
             <strong className="product__porcent">
-              {ticketNumber?.porcent ?? 0}%
+              {data?.porcent ?? 0}%
             </strong>
           </div>
         </div>
@@ -40,7 +35,7 @@ function Dashboard() {
         {/* Pendientes */}
         <h5>Pendientes</h5>
         <div className="dashboard__tickets-ct">
-          {tickets && tickets.map((res, i) => <TicketLink key={i} {...res} />)}
+          {pendings && pendings.map((res, i) => <TicketLink key={i} {...res} />)}
         </div>
 
         {
@@ -65,12 +60,12 @@ function Card({ title, value,handleClick }) {
   )
 }
 
-function TicketLink({ name, number, tickets }) {
+function TicketLink({ name, number, quantity }) {
   return (
     <Link to={`/dashboard/${number}`} className="ticket">
       <h6 className="ticket__name">{name}</h6>
       <span className="ticket__number">Número: {number}</span>
-      <span className="ticket__quantity">Pendientes: {tickets.length}</span>
+      <span className="ticket__quantity">Pendientes: {quantity}</span>
     </Link>
   )
 }

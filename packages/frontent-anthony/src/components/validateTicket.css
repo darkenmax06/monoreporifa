@@ -18,6 +18,7 @@
     flex-wrap: wrap;
     gap: 8px;
     background-color: #fff;
+    align-self: center;
 }
 
 .validate__form input{

@@ -3,30 +3,13 @@ import useData from "../hooks/useData";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./tickets.css"
+import useTickets from "../hooks/useTickets";
 
 
 function Tickets(){
     const {number} = useParams()
-    const {tickets} = useData()
-    const [data,setData] = useState()
-    const {upTickets} = useData()
+    const {upTickets,data} = useTickets()
     const navigate = useNavigate()
-
-    const updateTickes = ({status,ticket})=> {
-        upTickets({status,ticket})
-        .then(res => {
-            console.log(data)
-            let d = data.tickets.filter(res => res != ticket)
-            setData(prev => ({...prev, tickets: d}))
-        })
-    }
-
-    useEffect(()=>{
-        if (tickets && tickets.length){
-            let data = tickets.find(res => res.number == number)
-            setData(data)
-        }
-    },[tickets])
 
     console.log(data)
 
@@ -45,13 +28,13 @@ function Tickets(){
                 <h4>bouchers</h4>
 
                 <div className="tickets__bouchers">
-                    {data && data.bouchers.map(res => <img key={res} src={`http://localhost:3000/api/bouchers/images/${res}`}  />)}
+                    {data && data.bouchers.map(res => <img key={res} src={`/api/bouchers/images/${res}`}  />)}
                 </div>
 
                 <h4>tickets</h4>
 
                 <div className="tickets__tickets">
-                    {data && data.tickets.map(res => <Ticket key={res} ticket={res} updateTickes={updateTickes} />)}
+                    {data && data.tickets.map(res => <Ticket key={res.ticket} ticket={res.ticket} updateTickes={upTickets} />)}
                 </div>
             </div>
         </section>

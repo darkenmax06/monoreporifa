@@ -55,12 +55,24 @@ function BoucherRouter ({connection}){
             return next(err)
         }
     })
+  
+    router.get("/ticket/:ticket" ,async (req,res,next)=>{
+        const {ticket} = req.params
+
+        let query = `SELECT * FROM tickets WHERE ticket="${ticket}" `
+
+        try {
+            const [result] = await connection.query(query)
+            res.json(result)
+        }catch(err){
+            return next(err)
+        }
+    })
 
     router.get("/" ,async (req,res,next)=>{
         const {status} = req.query
 
-        let query = `SELECT * FROM tickets`
-        if (status) query += ` WHERE status="${status}" `
+        let query = `SELECT number,count(number) quantity, MIN(name) name, status FROM tickets WHERE status="${status}" GROUP BY number `
 
         try {
             const [result] = await connection.query(query)
@@ -81,13 +93,24 @@ function BoucherRouter ({connection}){
         }
     })
 
+    router.get("/number/:number" ,async (req,res,next)=>{
+        const {number} = req.params
+        try {
+            const [result] = await connection.query("SELECT * FROM tickets WHERE number=? AND status='IN PROCESS'",[number])
+            res.json(result)
+        }catch(err){
+            return next(err)
+        }
+    })
+
     router.get("/quantity" ,async (req,res,next)=>{
         try {
             const [[buyTickets]] = await connection.query("SELECT COUNT(*) FROM tickets")
-            const [[withoutValidateTickets]] = await connection.query("SELECT COUNT(*) FROM tickets WHERE status != 'ACTIVE'")
+            const [[withoutValidateTickets]] = await connection.query("SELECT COUNT(*) FROM tickets WHERE status = 'in process'")
             const [[invalidTickets]] = await connection.query("SELECT COUNT(*) FROM tickets WHERE status = 'INVALID'")
+            const [[validTickets]] = await connection.query("SELECT COUNT(*) FROM tickets WHERE status = 'ACTIVE'")
             console.log(withoutValidateTickets)
-            res.json({buyTickets: buyTickets["COUNT(*)"], totalTickets: 10000,withoutValidateTickets: withoutValidateTickets["COUNT(*)"], invalidTickets:invalidTickets["COUNT(*)"] })
+            res.json({buyTickets: buyTickets["COUNT(*)"], totalTickets: 10000,withoutValidateTickets: withoutValidateTickets["COUNT(*)"], invalidTickets:invalidTickets["COUNT(*)"],validTickets:invalidTickets["COUNT(*)"] })
         }catch(err){
             return next(err)
         }
