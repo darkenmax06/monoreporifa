@@ -130,5 +130,9 @@
 }
 
 .dashboard__tickets-ct{
-
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
 }

@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './dashboard.css'
 import useDashboard from "../hooks/useDashboard"
 
 
 function Dashboard() {
+  const navigate=useNavigate()
   const {data,getTickets,pendings,results} = useDashboard()
 
   return (
@@ -12,7 +13,7 @@ function Dashboard() {
         <h2>Dashboard</h2>
 
         <div className="dashboard__data">
-          <Card title="Boletos totales" value={data?.totalTickets} />
+          <Card title="Boletos totales" handleClick={()=>navigate("/dashboard/tickets/all")}  value={data?.totalTickets} />
           <Card title="Validados" handleClick={()=> getTickets("ACTIVE")} value={data?.validTickets} />
           <Card title="Sin validar" handleClick={()=> getTickets("IN PROCESS")} value={data?.withoutValidateTickets} />
           <Card title="Rechazados" handleClick={()=> getTickets("INVALID")} value={data?.invalidTickets} />
@@ -33,7 +34,7 @@ function Dashboard() {
         </div>
 
         {/* Pendientes */}
-        <h5>Pendientes</h5>
+        <h5>Por validar</h5>
         <div className="dashboard__tickets-ct">
           {pendings && pendings.map((res, i) => <TicketLink key={i} {...res} />)}
         </div>

@@ -1,6 +1,4 @@
 import { useParams } from "react-router-dom";
-import useData from "../hooks/useData";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./tickets.css"
 import useTickets from "../hooks/useTickets";

@@ -8,18 +8,20 @@ export default function useTickets(number){
     const [loading,setLoading] = useState(true)
 
     useEffect(()=>{
-        getByNumber({number})
-        .then(res => {
-            const bouchers = new Set(res.map(res => res.boucher))
-            const info ={
-                tickets: res,
-                bouchers: Array.from(bouchers)
-            }
+        if (number){
+            getByNumber({number})
+            .then(res => {
+                const bouchers = new Set(res.map(res => res.boucher))
+                const info ={
+                    tickets: res,
+                    bouchers: Array.from(bouchers)
+                }
 
-            setData(info)
-            setLoading(false)
-        })
-    },[])
+                setData(info)
+                setLoading(false)
+            })
+        }
+    },[number])
 
     async function upTickets ({ticket,status}){
         setLoading(true)

@@ -1,0 +1,68 @@
+
+
+.at__container{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px 24px;
+}
+
+.at__tickets-container{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+
+}
+
+.at__tickets-container li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 80px;
+    height: 40px;
+}
+
+
+.active{
+    background-color: #61eb5267;
+}
+
+
+.noactive{
+    background-color: #eb525267;
+}
+
+.at__actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+}
+
+.at__buttons{
+    display: flex;
+    padding: 16px 32px;
+    border: none;
+    background-color: var(--color);
+    color: var(--white);
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+}
+
+
+.at__container a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
